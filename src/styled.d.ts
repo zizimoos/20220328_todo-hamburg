@@ -5,8 +5,11 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      main: string;
-      secondary: string;
+      bgColor: string;
+      textColor: string;
+      accentColor: string;
+      boardColor: string;
+      cardColor: string;
     };
   }
 }
