@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import TodoApp from "./components/TodoApp";
+import TodoApp from "./TodoApp";
 
 const GlobalStyle = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/ 

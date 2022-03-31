@@ -1,8 +1,8 @@
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { todoListState } from "../atoms";
-import Board from "./Board";
+import { todoListState } from "./atoms";
+import Board from "./components/TodoBoard";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -28,12 +28,26 @@ function TodoApp() {
     if (!destination) {
       return;
     }
-    // if (source.droppableId === destination.droppableId) {
-    //   const newTodos = [...todos];
-    //   const target = newTodos.splice(source.index, 1);
-    //   newTodos.splice(destination.index, 0, ...target);
-    //   setTodos(newTodos);
-    // }
+    if (source.droppableId === destination.droppableId) {
+      const newTodos = [...todos[source.droppableId]];
+      const target = newTodos.splice(source.index, 1);
+      newTodos.splice(destination.index, 0, ...target);
+      setTodos((prevTodos) => ({
+        ...prevTodos,
+        [source.droppableId]: newTodos,
+      }));
+    }
+    if (source.droppableId !== destination.droppableId) {
+      const sourceTodos = [...todos[source.droppableId]];
+      const target = sourceTodos.splice(source.index, 1);
+      const destiTodos = [...todos[destination.droppableId]];
+      destiTodos.splice(destination.index, 0, ...target);
+      setTodos((prevTodos) => ({
+        ...prevTodos,
+        [destination.droppableId]: destiTodos,
+        [source.droppableId]: sourceTodos,
+      }));
+    }
   };
 
   return (
