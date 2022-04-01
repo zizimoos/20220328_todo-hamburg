@@ -44,8 +44,8 @@ function TodoApp() {
       destiTodos.splice(destination.index, 0, ...target);
       setTodos((prevTodos) => ({
         ...prevTodos,
-        [destination.droppableId]: destiTodos,
         [source.droppableId]: sourceTodos,
+        [destination.droppableId]: destiTodos,
       }));
     }
   };

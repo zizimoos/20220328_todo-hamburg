@@ -5,7 +5,9 @@ export const lighttheme: DefaultTheme = {
     bgColor: "gray",
     textColor: "black",
     accentColor: "teal",
-    boardColor: "lightgrey",
+    boardColor: "#E0E0E0",
+    boardSourceColor: "#B3E5FC",
+    boardDestinationColor: "#F48FB1",
     cardColor: "white",
   },
 };
