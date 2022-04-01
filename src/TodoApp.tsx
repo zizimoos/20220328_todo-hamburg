@@ -36,6 +36,10 @@ function TodoApp() {
         ...prevTodos,
         [source.droppableId]: newTodos,
       }));
+      localStorage.setItem(
+        "todo",
+        JSON.stringify({ ...todos, [source.droppableId]: newTodos })
+      );
     }
     if (source.droppableId !== destination.droppableId) {
       const sourceTodos = [...todos[source.droppableId]];
@@ -47,6 +51,14 @@ function TodoApp() {
         [source.droppableId]: sourceTodos,
         [destination.droppableId]: destiTodos,
       }));
+      localStorage.setItem(
+        "todo",
+        JSON.stringify({
+          ...todos,
+          [source.droppableId]: sourceTodos,
+          [destination.droppableId]: destiTodos,
+        })
+      );
     }
   };
 
